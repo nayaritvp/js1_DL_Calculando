@@ -1,4 +1,4 @@
-precio = 400000
+let precio = 400000
 
 precioSpan = document.querySelector(".precio-inicial");
 precioSpan.innerHTML = precio
@@ -9,10 +9,12 @@ let masbtn = document.getElementById("mas");
 let menosbtn = document.getElementById("menos");
 let cantidades = 0;
 
+
 masbtn.addEventListener("click", () => {
     console.log("click");
     cantidades++;
     cantidad.textContent = cantidades;
+    actualizarTotal();
 });
 
 menosbtn.addEventListener("click", () => {
@@ -20,7 +22,17 @@ menosbtn.addEventListener("click", () => {
     if (cantidades > 0) {
         cantidades--;
         cantidad.textContent = cantidades;
+        actualizarTotal();
     }
 })
+
+//funciones//
+function actualizarTotal() {
+    let total = cantidades * precio;
+    document.querySelector(".valor-total").textContent = total;
+}
+
+
+
 
 
